@@ -37,7 +37,21 @@ export default function CommandCenter() {
     table.insertAdjacentElement("afterend", block);
   }, [data]);
   const ingest = async (rows: Record<string, string>[], source: string) => { setLoading(true); try { const r = await fetch("/api/analyze", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ records: rows }) }), x = await r.json(); if (!r.ok) throw Error(x.error); setData(x); setMessage(`${source}: ${x.recordsAnalyzed.toLocaleString()} detections classified.`); } catch (e) { setMessage(e instanceof Error ? e.message : "Analysis unavailable."); } finally { setLoading(false); } };
-  const live = async () => { setLoading(true); try { const r = await fetch("/api/firms?days=1"), text = await r.text(); if (!r.ok) throw Error("Live FIRMS feed unavailable."); await ingest(parse(text), "Live India FIRMS"); } catch (e) { setMessage(e instanceof Error ? e.message : "Live feed unavailable."); setLoading(false); } };
+  const live = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("/api/firms?days=5");
+      const text = await response.text();
+      if (!response.ok) {
+        try { throw Error((JSON.parse(text) as { error?: string }).error || "Live FIRMS feed unavailable."); }
+        catch (error) { if (error instanceof Error && error.message !== "Unexpected end of JSON input") throw error; throw Error("Live FIRMS feed unavailable."); }
+      }
+      await ingest(parse(text), "Live India FIRMS — latest 5 days");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Live FIRMS feed unavailable.");
+      setLoading(false);
+    }
+  };
   const upload = async (e: ChangeEvent<HTMLInputElement>) => { const file = e.target.files?.[0]; if (file) await ingest(parse(await file.text()), file.name); };
   const view = zoom === 1 ? [68, 6, 98, 37] : zoom === 2 ? [72, 15, 88, 30] : [75, 18, 82, 24];
   const dots = data.incidents.filter(x => Number(x.latitude) && Number(x.longitude)).slice(0, 150), critical = data.incidents.filter(x => x.score >= 88).length, total = data.recordsAnalyzed || 1;
