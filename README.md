@@ -1,36 +1,208 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔥 PyroVigil | Thermal Intelligence
 
-## Getting Started
+**AI-Based Detection and Classification of Industrial Fires and Persistent Thermal Sources**
 
-First, run the development server:
+PyroVigil is an AI-powered thermal intelligence platform designed to detect, analyze, and monitor potential industrial fires and persistent thermal hotspots using satellite data, weather information, and geospatial intelligence.
+
+## 🚀 Live Demo
+
+**PyroVigil:**
+https://pyrovigil-npdwh2eyc-codewithkadambaris-projects.vercel.app/
+
+## 🎯 Problem
+
+Industrial fires and persistent thermal sources can cause serious damage to people, infrastructure, and the environment. Traditional monitoring methods may not provide fast enough information about emerging fire risks.
+
+PyroVigil combines satellite hotspot data, weather conditions, geospatial information, and AI-based analysis to help identify and understand potential fire risks.
+
+## 💡 Key Features
+
+* 🔥 **Thermal Hotspot Detection** using NASA FIRMS data
+* 🗺️ **Interactive Command Center Map**
+* 🌡️ **Weather-Based Risk Analysis**
+* 🤖 **AI Assistant** for hotspot analysis and explanations
+* 📊 **Fire Risk Classification**
+* 💨 **Wind Direction & Potential Spread Analysis**
+* 🏭 **Industrial Facility & Location Analysis**
+* 📍 **Geospatial Visualization**
+* 🚨 **Risk Alerts** for potentially dangerous hotspots
+* 📈 **Historical Hotspot Analysis**
+
+## 🧠 How It Works
+
+```text
+Satellite Data (NASA FIRMS)
+          ↓
+Hotspot Detection
+          ↓
+Weather + Geospatial Data
+          ↓
+AI-Based Risk Analysis
+          ↓
+Risk Classification
+          ↓
+Interactive Command Center
+          ↓
+AI Explanation & Alerts
+```
+
+## 🛠️ Technology Stack
+
+### Frontend
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* React
+
+### Backend
+
+* FastAPI
+* Python
+
+### Database & Storage
+
+* PostgreSQL
+* Redis
+* Qdrant
+
+### Data Sources
+
+* NASA FIRMS
+* OpenStreetMap (OSM)
+* Weather APIs
+
+### AI / ML
+
+* XGBoost
+* Convolutional Features
+* Geospatial Analysis
+* AI-powered assistant
+
+## 📊 Risk Classification
+
+PyroVigil classifies detected hotspots based on multiple factors such as:
+
+* Fire brightness
+* Fire Radiative Power (FRP)
+* Confidence level
+* Temperature
+* Humidity
+* Wind speed
+* Wind direction
+* Distance from industrial facilities
+* Historical hotspot activity
+
+Hotspots are categorized into different risk levels to help users understand the severity of a detected thermal source.
+
+## 🤖 AI Assistant
+
+The integrated AI Assistant helps users understand detected hotspots by providing information such as:
+
+* What the hotspot represents
+* Potential fire risk
+* Weather conditions
+* Possible direction of fire spread
+* Nearby industrial facilities
+* Recommended areas for attention
+
+## 🗺️ Data & Geospatial Intelligence
+
+PyroVigil combines satellite observations with geospatial information from **OpenStreetMap** to identify nearby facilities and potentially vulnerable areas.
+
+Historical hotspot data can also be analyzed to identify recurring thermal activity.
+
+## 📁 Project Structure
+
+```text
+pyrovigil/
+├── app/
+│   ├── api/
+│   ├── components/
+│   └── pages/
+├── backend/
+│   ├── APIs
+│   ├── AI analysis
+│   └── data processing
+├── public/
+├── .env.local
+├── package.json
+├── next.config.ts
+└── README.md
+```
+
+## ⚙️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd pyrovigil
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+Create a `.env.local` file and add the required API keys and configuration values.
+
+Example:
+
+```env
+FIRMS_API_KEY=your_firms_api_key
+WEATHER_API_KEY=your_weather_api_key
+```
+
+### 4. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌐 Deployment
 
-## Learn More
+The project is deployed using Vercel.
 
-To learn more about Next.js, take a look at the following resources:
+**Live Application:**
+https://pyrovigil-npdwh2eyc-codewithkadambaris-projects.vercel.app/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎓 Project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Project Name:** PyroVigil
 
-## Deploy on Vercel
+**Domain:** Artificial Intelligence, Data Science & Disaster Management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Focus:** Industrial Fire Detection and Thermal Source Monitoring
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👩‍💻 Team
+
+* Dhanshree
+* Kalyani
+* Tejaswini
+* Khushi
+* Anuksha
+* Kadambari
+
+## 🔮 Future Improvements
+
+* Real-time emergency notifications
+* Improved fire-spread prediction
+* More accurate AI risk scoring
+* Mobile application
+* Integration with additional satellite datasets
+* Automated emergency response recommendations
+* Improved live FIRMS data integration
+
+## 📜 License
+
+This project is developed for educational, research, and innovation purposes.
